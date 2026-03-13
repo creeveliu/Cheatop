@@ -1,0 +1,266 @@
+:root {
+  --bg: #f5f1e7;
+  --paper: #fffdf8;
+  --ink: #1a1a1a;
+  --muted: #615c54;
+  --line: #d7cfbf;
+  --accent: #9f4227;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", sans-serif;
+}
+
+main {
+  width: min(1120px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 24px 0 48px;
+}
+
+.site-header,
+.site-footer {
+  width: min(1120px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 20px 0 0;
+}
+
+.brand {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.tagline,
+.site-footer p {
+  color: var(--muted);
+}
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.tool-card {
+  display: block;
+  padding: 18px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  color: inherit;
+  text-decoration: none;
+}
+
+.tool-card__badge {
+  color: var(--accent);
+  font-size: 12px;
+}
+
+.tool-page {
+  display: grid;
+  gap: 20px;
+}
+
+.tool-meta {
+  padding: 14px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+
+.sheet {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 16px;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.05);
+}
+
+.sheet-hero {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.sheet-hero-main,
+.sheet-hero-meta,
+.sheet-section {
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, #fffefb 0%, #fffaf1 100%);
+}
+
+.sheet-hero-main {
+  padding: 14px 16px;
+  background: linear-gradient(180deg, #fff9f3 0%, #fffdf8 100%);
+}
+
+.sheet-hero-main h1,
+.sheet-section h2 {
+  margin: 0;
+}
+
+.sheet-hero-main h1 {
+  font-size: clamp(1.6rem, 2vw, 2rem);
+  margin-bottom: 6px;
+  letter-spacing: 0.01em;
+}
+
+.sheet-hero-main p,
+.sheet-note,
+.sheet-footer {
+  color: var(--muted);
+}
+
+.sheet-hero-meta {
+  padding: 12px 14px;
+  background: linear-gradient(180deg, #fff5f1 0%, #fffdf8 100%);
+}
+
+.sheet-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.sheet-pill {
+  font-size: 0.78rem;
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: #f6e7df;
+  border: 1px solid #e7c7b9;
+}
+
+.sheet-meta {
+  display: grid;
+  gap: 8px;
+  font-size: 0.92rem;
+}
+
+.sheet-meta strong {
+  display: block;
+  font-size: 0.72rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+
+.sheet-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  align-items: start;
+}
+
+.sheet-stack {
+  display: grid;
+  gap: 10px;
+}
+
+.sheet-section {
+  padding: 10px;
+  break-inside: avoid;
+}
+
+.sheet-section h2 {
+  font-size: 0.9rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 4px;
+  margin-bottom: 8px;
+}
+
+.sheet table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+.sheet th,
+.sheet td {
+  border: 1px solid var(--line);
+  padding: 4px 5px;
+  vertical-align: top;
+}
+
+.sheet th {
+  text-align: left;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  background: #fbf3e7;
+  color: #5d3f2d;
+  text-transform: uppercase;
+}
+
+.sheet code {
+  font-family: "SFMono-Regular", "Menlo", "Consolas", monospace;
+  font-size: 0.82rem;
+  background: #f5efe4;
+  padding: 0 3px;
+  border-radius: 3px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.sheet ul {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 0.9rem;
+}
+
+.sheet li + li {
+  margin-top: 6px;
+}
+
+.sheet-note {
+  margin: 6px 0 0;
+  font-size: 0.82rem;
+}
+
+.sheet-footer {
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+  font-size: 0.78rem;
+  display: grid;
+  gap: 4px;
+}
+
+@media print {
+  body {
+    background: #fff;
+  }
+
+  .site-header,
+  .site-footer {
+    display: none;
+  }
+
+  main {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .sheet {
+    border: 0;
+    box-shadow: none;
+    padding: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .sheet-hero,
+  .sheet-layout {
+    grid-template-columns: 1fr;
+  }
+}

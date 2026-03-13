@@ -1,0 +1,15 @@
+---
+interface Props {
+  category: string;
+  updatedAt: string;
+  officialDocs: string;
+}
+
+const { category, updatedAt, officialDocs } = Astro.props;
+---
+
+<aside class="tool-meta">
+  <p>分类：{category}</p>
+  <p>更新：{updatedAt}</p>
+  <p><a href={officialDocs}>官方文档</a></p>
+</aside>

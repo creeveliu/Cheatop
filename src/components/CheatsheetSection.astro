@@ -1,0 +1,62 @@
+---
+interface Section {
+  title: string;
+  type: "table" | "list";
+  headers?: string[];
+  rows?: string[][];
+  items?: string[];
+  note?: string;
+}
+
+const { section } = Astro.props as { section: Section };
+
+function escapeHtml(value: string) {
+  return value
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#39;");
+}
+
+function renderInlineCode(value: string) {
+  const parts = value.split(/(`[^`]+`)/g).filter(Boolean);
+
+  return parts
+    .map((part) => {
+      if (part.startsWith("`") && part.endsWith("`")) {
+        return `<code>${escapeHtml(part.slice(1, -1))}</code>`;
+      }
+
+      return escapeHtml(part);
+    })
+    .join("");
+}
+---
+
+<section class="sheet-section">
+  <h2>{section.title}</h2>
+  {
+    section.type === "table" ? (
+      <table>
+        <thead>
+          <tr>
+            {section.headers?.map((header) => <th set:html={renderInlineCode(header)} />)}
+          </tr>
+        </thead>
+        <tbody>
+          {section.rows?.map((row) => (
+            <tr>
+              {row.map((cell) => <td set:html={renderInlineCode(cell)} />)}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    ) : (
+      <ul>
+        {section.items?.map((item) => <li set:html={renderInlineCode(item)} />)}
+      </ul>
+    )
+  }
+  {section.note && <p class="sheet-note" set:html={renderInlineCode(section.note)} />}
+</section>

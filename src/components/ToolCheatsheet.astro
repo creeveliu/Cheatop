@@ -1,0 +1,72 @@
+---
+import CheatsheetSection from "./CheatsheetSection.astro";
+
+interface MetaItem {
+  label: string;
+  value: string;
+}
+
+interface Section {
+  title: string;
+  type: "table" | "list";
+  headers?: string[];
+  rows?: string[][];
+  items?: string[];
+  note?: string;
+}
+
+interface Sheet {
+  title: string;
+  dek: string;
+  pills: string[];
+  meta: MetaItem[];
+  left: Section[];
+  right: Section[];
+  footer: string[];
+}
+
+const { sheet } = Astro.props as { sheet: Sheet };
+---
+
+<article class="sheet">
+  <section class="sheet-hero">
+    <div class="sheet-hero-main">
+      <h1>{sheet.title}</h1>
+      <p>{sheet.dek}</p>
+      <div class="sheet-pills">
+        {sheet.pills.map((pill) => (
+          <span class="sheet-pill">{pill}</span>
+        ))}
+      </div>
+    </div>
+    <div class="sheet-hero-meta">
+      <div class="sheet-meta">
+        {sheet.meta.map((item) => (
+          <div>
+            <strong>{item.label}</strong>
+            <span set:html={item.value} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet-layout">
+    <div class="sheet-stack">
+      {sheet.left.map((section) => (
+        <CheatsheetSection section={section} />
+      ))}
+    </div>
+    <div class="sheet-stack">
+      {sheet.right.map((section) => (
+        <CheatsheetSection section={section} />
+      ))}
+    </div>
+  </section>
+
+  <footer class="sheet-footer">
+    {sheet.footer.map((item) => (
+      <div>{item}</div>
+    ))}
+  </footer>
+</article>
