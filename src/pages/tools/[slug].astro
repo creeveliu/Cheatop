@@ -1,0 +1,32 @@
+---
+import { getCollection, render } from "astro:content";
+import ToolMeta from "../../components/ToolMeta.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const tools = await getCollection("tools");
+
+  return tools.map((tool) => ({
+    params: { slug: tool.slug },
+    props: { tool }
+  }));
+}
+
+const { tool } = Astro.props;
+const { Content } = await render(tool);
+---
+
+<BaseLayout title={`${tool.data.title} Cheat Sheet`} description={tool.data.summary}>
+  <article class="tool-page">
+    <header>
+      <h1>{tool.data.title}</h1>
+      <p>{tool.data.summary}</p>
+    </header>
+    <ToolMeta
+      category={tool.data.category}
+      updatedAt={tool.data.updatedAt}
+      officialDocs={tool.data.officialDocs}
+    />
+    <Content />
+  </article>
+</BaseLayout>

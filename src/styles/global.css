@@ -62,3 +62,14 @@ main {
   color: var(--accent);
   font-size: 12px;
 }
+
+.tool-page {
+  display: grid;
+  gap: 20px;
+}
+
+.tool-meta {
+  padding: 14px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
