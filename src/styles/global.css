@@ -1,0 +1,44 @@
+:root {
+  --bg: #f5f1e7;
+  --paper: #fffdf8;
+  --ink: #1a1a1a;
+  --muted: #615c54;
+  --line: #d7cfbf;
+  --accent: #9f4227;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "PingFang SC", "Hiragino Sans GB", sans-serif;
+}
+
+main {
+  width: min(1120px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 24px 0 48px;
+}
+
+.site-header,
+.site-footer {
+  width: min(1120px, calc(100vw - 32px));
+  margin: 0 auto;
+  padding: 20px 0 0;
+}
+
+.brand {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.tagline,
+.site-footer p {
+  color: var(--muted);
+}
