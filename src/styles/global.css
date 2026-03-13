@@ -42,3 +42,23 @@ main {
 .site-footer p {
   color: var(--muted);
 }
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.tool-card {
+  display: block;
+  padding: 18px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  color: inherit;
+  text-decoration: none;
+}
+
+.tool-card__badge {
+  color: var(--accent);
+  font-size: 12px;
+}

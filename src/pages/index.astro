@@ -1,0 +1,24 @@
+---
+import { getCollection } from "astro:content";
+import ToolCard from "../components/ToolCard.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const tools = await getCollection("tools");
+---
+
+<BaseLayout title="AI Cheat Sheets">
+  <section>
+    <h1>AI Tool Cheat Sheets</h1>
+    <p>快速查看安装、命令、flags、快捷键和高频工作流。</p>
+  </section>
+  <section class="tool-grid">
+    {tools.map((tool) => (
+      <ToolCard
+        title={tool.data.title}
+        summary={tool.data.summary}
+        href={`/tools/${tool.slug}/`}
+        category={tool.data.category}
+      />
+    ))}
+  </section>
+</BaseLayout>
