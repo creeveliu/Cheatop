@@ -4,6 +4,12 @@ import ToolCard from "../components/ToolCard.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
 
 const tools = await getCollection("tools");
+
+function getCardSummary(title: string, summary: string) {
+  return summary.startsWith(`${title} `)
+    ? summary.slice(title.length).trimStart()
+    : summary;
+}
 ---
 
 <BaseLayout title="AI Cheat Sheets">
@@ -15,7 +21,7 @@ const tools = await getCollection("tools");
     {tools.map((tool) => (
       <ToolCard
         title={tool.data.title}
-        summary={tool.data.summary}
+        summary={getCardSummary(tool.data.title, tool.data.summary)}
         href={`/tools/${tool.slug}/`}
         category={tool.data.category}
       />
