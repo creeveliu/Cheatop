@@ -41,13 +41,15 @@ const { sheet } = Astro.props as { sheet: Sheet };
       </div>
     </div>
     <div class="sheet-hero-meta">
-      <div class="sheet-meta">
-        {sheet.meta.map((item) => (
-          <div>
-            <strong>{item.label}</strong>
-            <span set:html={renderInlineCode(item.value)} />
-          </div>
-        ))}
+      <div class="sheet-meta-panel">
+        <div class="sheet-meta">
+          {sheet.meta.map((item) => (
+            <div>
+              <strong>{item.label}</strong>
+              <span set:html={renderInlineCode(item.value)} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </section>

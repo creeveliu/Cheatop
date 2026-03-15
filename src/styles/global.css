@@ -168,6 +168,7 @@ main {
 .sheet {
   background: var(--paper);
   border: 1px solid var(--line);
+  border-radius: 24px;
   padding: 18px;
   box-shadow: var(--shadow);
 }
@@ -176,7 +177,7 @@ main {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
   gap: 12px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .sheet-hero-main,
@@ -212,6 +213,11 @@ main {
 .sheet-hero-meta {
   padding: 14px 16px;
   background: linear-gradient(180deg, rgb(32 22 20 / 0.96) 0%, rgb(18 24 33 / 0.98) 100%);
+}
+
+.sheet-meta-panel {
+  border-left: 1px solid color-mix(in srgb, var(--accent) 22%, var(--line));
+  padding-left: 12px;
 }
 
 .sheet-pills {
@@ -258,11 +264,11 @@ main {
 
 .sheet-stack {
   display: grid;
-  gap: 12px;
+  gap: 10px;
 }
 
 .sheet-section {
-  padding: 12px;
+  padding: 10px;
   break-inside: avoid;
 }
 
@@ -272,20 +278,20 @@ main {
   text-transform: uppercase;
   letter-spacing: 0.05em;
   border-bottom: 1px solid var(--line);
-  padding-bottom: 5px;
-  margin-bottom: 10px;
+  padding-bottom: 4px;
+  margin-bottom: 8px;
 }
 
 .sheet table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 0.88rem;
+  font-size: 0.82rem;
 }
 
 .sheet th,
 .sheet td {
   border: 1px solid var(--line);
-  padding: 5px 6px;
+  padding: 4px 5px;
   vertical-align: top;
 }
 
@@ -312,16 +318,16 @@ main {
 .sheet ul {
   margin: 0;
   padding-left: 18px;
-  font-size: 0.9rem;
+  font-size: 0.86rem;
 }
 
 .sheet li + li {
-  margin-top: 6px;
+  margin-top: 5px;
 }
 
 .sheet-note {
-  margin: 8px 0 0;
-  font-size: 0.82rem;
+  margin: 6px 0 0;
+  font-size: 0.74rem;
 }
 
 .sheet-footer {
@@ -372,6 +378,29 @@ button:focus-visible,
     border: 0;
     box-shadow: none;
     padding: 0;
+    border-radius: 0;
+  }
+
+  .sheet-hero {
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .sheet-stack {
+    gap: 8px;
+  }
+
+  .sheet-section {
+    padding: 8px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .sheet-footer {
+    margin-top: 8px;
+    padding-top: 6px;
+    break-inside: avoid;
+    page-break-inside: avoid;
   }
 }
 
