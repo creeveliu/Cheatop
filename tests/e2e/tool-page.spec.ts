@@ -20,3 +20,8 @@ test("工具页应该把命令渲染成代码样式", async ({ page }) => {
   await page.goto("/tools/claude-code/");
   await expect(page.locator("code", { hasText: "claude" }).first()).toBeVisible();
 });
+
+test("工具页 hero meta 区域的命令应该渲染成代码样式", async ({ page }) => {
+  await page.goto("/tools/claude-code/");
+  await expect(page.locator(".sheet-meta code", { hasText: "curl -fsSL claude.ai/install.sh | bash" })).toBeVisible();
+});

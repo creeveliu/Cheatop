@@ -10,7 +10,10 @@ const { title, summary, href, category } = Astro.props;
 ---
 
 <a class="tool-card" href={href}>
-  <span class="tool-card__badge">{category}</span>
+  <div class="tool-card__topline">
+    <span class="tool-card__badge">{category}</span>
+    <span class="tool-card__arrow" aria-hidden="true">↗</span>
+  </div>
   <h2>{title}</h2>
   <p>{summary}</p>
 </a>

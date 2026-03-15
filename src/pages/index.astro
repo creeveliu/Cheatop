@@ -13,9 +13,14 @@ function getCardSummary(title: string, summary: string) {
 ---
 
 <BaseLayout title="AI Cheat Sheets">
-  <section>
+  <section class="directory-hero">
+    <p class="directory-kicker">Engineer&apos;s Index</p>
     <h1>AI Tool Cheat Sheets</h1>
-    <p>快速查看安装、命令、flags、快捷键和高频工作流。</p>
+    <p class="directory-dek">为工程师准备的深色速查索引。优先快速定位安装方式、核心命令、flags、快捷键与高频工作流。</p>
+  </section>
+  <section class="directory-meta">
+    <p>当前重点：高密度 cheatsheet，兼顾屏幕阅读与打印输出。</p>
+    <p>当前收录：Claude Code CLI 中文速查表。</p>
   </section>
   <section class="tool-grid">
     {tools.map((tool) => (

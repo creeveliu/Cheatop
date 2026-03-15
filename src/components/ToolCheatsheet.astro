@@ -1,5 +1,6 @@
 ---
 import CheatsheetSection from "./CheatsheetSection.astro";
+import { renderInlineCode } from "../lib/rich-text";
 
 interface MetaItem {
   label: string;
@@ -44,7 +45,7 @@ const { sheet } = Astro.props as { sheet: Sheet };
         {sheet.meta.map((item) => (
           <div>
             <strong>{item.label}</strong>
-            <span set:html={item.value} />
+            <span set:html={renderInlineCode(item.value)} />
           </div>
         ))}
       </div>
